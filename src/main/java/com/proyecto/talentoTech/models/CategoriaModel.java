@@ -9,7 +9,7 @@ public class CategoriaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id; // Usamos 'int' ya que los IDs en SQL eran más pequeños
+    private int categoria_id; // Usamos 'int' ya que los IDs en SQL eran más pequeños
 
     @Column(name = "nombre_principal", nullable = false, length = 100)
     private String nombrePrincipal;
@@ -24,11 +24,11 @@ public class CategoriaModel {
     // --- Getters y Setters ---
 
     public int getId() {
-        return id;
+        return categoria_id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.categoria_id = id;
     }
 
     public String getNombrePrincipal() {

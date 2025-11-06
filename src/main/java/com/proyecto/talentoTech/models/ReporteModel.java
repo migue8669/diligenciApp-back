@@ -34,13 +34,24 @@ public class ReporteModel {
     private String usuario;
 
     @Column
+    private String categoria;
+    public String getUsuarioTipo() {
+        return usuarioTipo;
+    }
+
+    public void setUsuarioTipo(String usuarioTipo) {
+        this.usuarioTipo = usuarioTipo;
+    }
+
+    @Column
+    private String usuarioTipo;
+
+    @Column
     private String estado;
 
     @Column
     private String tomadoPor;
-
-    @Column
-    private String categoria;
+    
 
 
     public String getCategoria() {

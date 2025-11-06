@@ -39,6 +39,7 @@ public class ReporteService {
         report.setEstado(request.getEstado());
         report.setTomadoPor(request.getTomadoPor());
         report.setUsuario(request.getUsuario());
+        report.setUsuarioTipo(request.getUsuarioTipo());
         return reporteRepository.save(report);
     }
     public Boolean deleteReporte(Long id){

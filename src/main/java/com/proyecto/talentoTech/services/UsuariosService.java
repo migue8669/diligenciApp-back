@@ -33,11 +33,27 @@ public class UsuariosService {
         // Si el usuario fue encontrado, devuelve Optional con el usuario.
         // Si no fue encontrado (credenciales incorrectas), devuelve Optional.empty().
         return user;
-    } public UsuariosModel updateById(UsuariosModel request, Long id){
-        UsuariosModel user=usuarioRepository.findById(id).get();
-        user.setUsername(request.getUsername());
-        user.setPassword(request.getPassword());
-        return user;
+    }
+
+    public UsuariosModel updateById(UsuariosModel request, Long id){
+        // 1. Obtener el usuario existente como Optional
+        Optional<UsuariosModel> userOptional = usuarioRepository.findById(id);
+
+        if (userOptional.isPresent()) {
+            UsuariosModel user = userOptional.get();
+
+            // 2. FUSIONAR (Merge): Aplicar el cambio del PUT (userType)
+            // Solo actualizamos userType si el valor viene en el cuerpo de la solicitud (request)
+            if (request.getUserType() != null && !request.getUserType().isEmpty()) {
+                user.setUserType(request.getUserType());
+            }
+
+            // 3. ✅ CRÍTICO: Guardar la entidad modificada en la base de datos.
+            return usuarioRepository.save(user);
+        } else {
+            // Si el usuario no existe, lanzar una excepción (el controlador la convertirá a 404 o 500)
+            throw new RuntimeException("Usuario no encontrado con ID: " + id);
+        }
     }
     public Boolean deleteUsuario(Long id){
         try {

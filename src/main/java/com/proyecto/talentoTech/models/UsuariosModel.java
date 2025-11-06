@@ -22,6 +22,17 @@ public class UsuariosModel {
     private String email;
     @Column
     private String phone;
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    @Column
+    private String userType;
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<ReporteModel> reportes;
@@ -29,6 +40,7 @@ public class UsuariosModel {
     // ... Resto de Getters y Setters...
 
     // Getter y Setter para reportes
+
     public List<ReporteModel> getReportes() {
         return reportes;
     }
