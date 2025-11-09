@@ -22,7 +22,7 @@ public class ReporteModel {
     private Number telefono;
 
     @Column
-    private Number precio;
+    private String precio;
 
     @Column
     private Number lat;
@@ -35,6 +35,18 @@ public class ReporteModel {
 
     @Column
     private String categoria;
+
+    public String getCategoria_id() {
+        return categoria_id;
+    }
+
+    public void setCategoria_id(String categoria_id) {
+        this.categoria_id = categoria_id;
+    }
+
+    @Column
+    private String categoria_id;
+
     public String getUsuarioTipo() {
         return usuarioTipo;
     }
@@ -102,11 +114,11 @@ public class ReporteModel {
         this.telefono = telefono;
     }
 
-    public Number getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(Number precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 
