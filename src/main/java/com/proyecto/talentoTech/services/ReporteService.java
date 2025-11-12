@@ -40,6 +40,7 @@ public class ReporteService {
         report.setTomadoPor(request.getTomadoPor());
         report.setUsuario(request.getUsuario());
         report.setUsuarioTipo(request.getUsuarioTipo());
+        report.setImagen(request.getImagen());
         return reporteRepository.save(report);
     }
     public Boolean deleteReporte(Long id){

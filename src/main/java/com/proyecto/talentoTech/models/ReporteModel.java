@@ -63,7 +63,9 @@ public class ReporteModel {
 
     @Column
     private String tomadoPor;
-    
+
+    @Column
+    private String imagen;
 
 
     public String getCategoria() {
@@ -160,5 +162,12 @@ public class ReporteModel {
 
     public void setTomadoPor(String tomadoPor) {
         this.tomadoPor = tomadoPor;
+    }
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }

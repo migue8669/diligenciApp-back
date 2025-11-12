@@ -47,7 +47,17 @@ public class UsuariosService {
             if (request.getUserType() != null && !request.getUserType().isEmpty()) {
                 user.setUserType(request.getUserType());
             }
+            if (request.getPassword() != null && !request.getPassword().isEmpty()) {
+                user.setPassword(request.getPassword());
+            }
 
+            if (request.getUsername() != null && !request.getUsername().isEmpty()) {
+                user.setUsername(request.getUsername());
+            }
+
+            if (request.getEmail() != null && !request.getEmail().isEmpty()) {
+                user.setEmail(request.getEmail());
+            }
             // 3. ✅ CRÍTICO: Guardar la entidad modificada en la base de datos.
             return usuarioRepository.save(user);
         } else {
